@@ -34,3 +34,13 @@ end
 def age_over_17(candidate)
   candidate [:age] > 17
 end
+
+def ordered_by_qualifications(candidates)
+  candidates.sort do |first, second|
+    if first[:years_of_experience] == second[:years_of_experience]
+      second[:github_points] <=> first[:github_points]
+    else 
+      second[:years_of_experience] <=> first[:years_of_experience]
+    end
+  end
+end
