@@ -10,14 +10,20 @@ def experienced?(candidate)
 end
 
 def qualified_candidates(candidates)
-  # Your code Here
+  @candidates.select do |candidate|
+    experienced?(candidate) &&
+    points_over_100(candidate) &&
+    ruby_or_python(candidate) &&
+    applied_recently(candidate) &&
+    age_over_17(candidate)
+  end
 end
 
 def points_over_100(candidate)
   candidate [:github_points].to_i >= 100
 end
 
-def ruby_of_python(candidate)
+def ruby_or_python(candidate)
   candidate [:languages].include? 'Ruby' || 'Python'
 end
 
