@@ -13,4 +13,18 @@ def qualified_candidates(candidates)
   # Your code Here
 end
 
-# More methods will go below
+def points_over_100(candidate)
+  candidate [:github_points].to_i >= 100
+end
+
+def ruby_of_python(candidate)
+  candidate [:languages].include? 'Ruby' || 'Python'
+end
+
+def applied_recently(candidate)
+  candidate [:date_applied] >= 15.days.ago.to_date
+end
+
+def age_over_17(candidate)
+  candidate [:age] > 17
+end
